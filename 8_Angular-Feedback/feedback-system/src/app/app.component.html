@@ -1,0 +1,196 @@
+<!-- <div class="container">
+  <h1>Feedback Record System</h1>
+  <div class="actions">
+    <button class="btn" (click)="showAddForm()">Add Feedback</button>
+  </div>
+  <div class="form-container" *ngIf="showAddFormFlag">
+    <h2>Add Feedback</h2>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter Name"
+        [(ngModel)]="newFeedback.name"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter Roll Number"
+        [(ngModel)]="newFeedback.rollNumber"
+      />
+    </div>
+    <button class="btn" (click)="addFeedback()">Save</button>
+  </div>
+  <div class="clearfix"></div>
+  <div class="Feedback-list">
+    <h2>Feedback List</h2>
+    <div class="Feedback-box" *ngFor="let Feedback of Feedbacks">
+      <div class="Feedback-details">
+        <span class="Feedback-name">{{ Feedback.name }}</span>
+        <span class="Feedback-roll">Roll Number: {{ Feedback.rollNumber }}</span>
+      </div>
+      <div class="Feedback-actions">
+        <button class="btn btn-secondary" (click)="editFeedback(Feedback)">
+          Edit
+        </button>
+        <button class="btn btn-danger" (click)="deleteFeedback(Feedback)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-container" *ngIf="showEditFormFlag">
+    <h2>Edit Feedback</h2>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="selectedFeedback.name"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="selectedFeedback.rollNumber"
+      />
+    </div>
+    <button class="btn" (click)="updateFeedback()">Update</button>
+  </div>
+</div> -->
+
+<!-- app.component.html -->
+<div class="container">
+  <h1>Feedback Record System</h1>
+  <div class="actions">
+    <button class="btn" (click)="showAddForm()">Add Feedback</button>
+  </div>
+  <div class="form-container" *ngIf="showAddFormFlag">
+    <h2>Add Feedback</h2>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter Name"
+        [(ngModel)]="newFeedback.name"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter Roll Number"
+        [(ngModel)]="newFeedback.rollNumber"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Enter Email"
+        [(ngModel)]="newFeedback.email"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter TeacherName"
+        [(ngModel)]="newFeedback.TeacherName"
+      />
+    </div>
+    <div class="form-group">
+      <label>Rating:</label>
+      <div class="radio-buttons">
+        <label>
+          <input type="radio" name="rating" [(ngModel)]="newFeedback.Rating" value="Needs Improvement"> Needs Improvement
+        </label>
+        <label>
+          <input type="radio" name="rating" [(ngModel)]="newFeedback.Rating" value="Below Average"> Below Average
+        </label>
+        <label>
+          <input type="radio" name="rating" [(ngModel)]="newFeedback.Rating" value="Average"> Average
+        </label>
+        <label>
+          <input type="radio" name="rating" [(ngModel)]="newFeedback.Rating" value="Good"> Good
+        </label>
+        <label>
+          <input type="radio" name="rating" [(ngModel)]="newFeedback.Rating" value="Excellent"> Excellent
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter Comments"
+        [(ngModel)]="newFeedback.Comments"
+      />
+    </div>
+    <button class="btn" (click)="addFeedback()">Save</button>
+  </div>
+  <div class="clearfix"></div>
+  <div class="Feedback-list">
+    <h2>Feedback List</h2>
+    <div class="Feedback-box" *ngFor="let Feedback of Feedbacks">
+      <div class="Feedback-details">
+        <span class="Feedback-name">{{ Feedback.name }}</span><br/>
+        <span class="Feedback-roll">Roll Number: {{ Feedback.rollNumber }}</span><br/>
+        <span class="Feedback-email">Email: {{ Feedback.email }}</span><br/>
+        <span class="Feedback-TeacherName">TeacherName: {{ Feedback.TeacherName }}</span><br/>
+        <span class="Feedback-TeacherName">Rating: {{ Feedback.Rating }}</span><br/>
+        <span class="Feedback-Comments">Comments: {{ Feedback.Comments }}</span><br/>
+      </div>
+      <div class="Feedback-actions">
+        <button class="btn btn-secondary" (click)="editFeedback(Feedback)">
+          Edit
+        </button>
+        <button class="btn btn-danger" (click)="deleteFeedback(Feedback)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-container" *ngIf="showEditFormFlag">
+    <h2>Edit Feedback</h2>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="selectedFeedback.name"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="selectedFeedback.rollNumber"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="email"
+        [(ngModel)]="selectedFeedback.email"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="number"
+        [(ngModel)]="selectedFeedback.TeacherName"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="selectedFeedback.Comments"
+      />
+    </div>
+    <button class="btn" (click)="updateFeedback()">Update</button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div>
+    <label for="name">Name:</label>
+    <!-- ng-model directive used for two-way data binding -->
+    <input type="text" id="name" [(ngModel)]="name" />
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <!-- ng-model directive used for two-way data binding -->
+    <input type="number" id="age" [(ngModel)]="age" />
+  </div>
+  <!-- (click) event binding used for button click -->
+  <button (click)="updateGreeting()">Update Greeting</button>
+  <!-- Expression used to display the greeting message -->
+  <p>{{ greeting }}</p>
+</div>
