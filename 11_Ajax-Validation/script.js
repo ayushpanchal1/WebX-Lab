@@ -32,7 +32,7 @@ $(document).ready(function () {
     }
 
     // Password validation: should be greater than 8 characters and alphanumeric
-    if (password.length < 8 || !password.match(/^[0-9a-zA-Z]+$/)) {
+    if (password.length < 8 ) {
       $("#validationResult").html(
         '<p style="color: red;">Password must be greater than 8 characters and alphanumeric!</p>'
       );
